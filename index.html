@@ -177,8 +177,8 @@ border-top:1px solid #1e293b;
 <h2>Hi, I'm <span>Samadhan</span></h2>
 <p>
 Data Scientist specializing in enterprise-scale demand forecasting, 
-time series modeling, ensemble strategies, hierarchical forecasting, 
-and AI-driven analytics solutions.
+time series modeling, ensemble strategies, intermittent demand handling, 
+hierarchical forecasting, and AI-driven analytics solutions.
 </p>
 <button class="btn" onclick="scrollToSection('projects')">View Case Studies</button>
 </section>
@@ -195,12 +195,17 @@ and AI-driven analytics solutions.
 
 <div class="card" onclick="showProject('accelerator')">
 <h3>Forecast Accelerator</h3>
-<p>Automated End-to-End Forecasting Engine</p>
+<p>Automated End-to-End Forecasting Pipeline</p>
+</div>
+
+<div class="card" onclick="showProject('dashboard')">
+<h3>Hi-Tech Forecasting Dashboard</h3>
+<p>Interactive Business Forecasting Demo</p>
 </div>
 
 <div class="card" onclick="showProject('jio')">
-<h3>PAN-India Retail Sales Forecasting</h3>
-<p>3.2M+ Records | Campaign Impact</p>
+<h3>PAN-India Retail Forecasting</h3>
+<p>3.2M+ Records | Campaign Impact Analysis</p>
 </div>
 
 <div class="card" onclick="showProject('oil')">
@@ -233,7 +238,6 @@ document.getElementById(id).scrollIntoView({behavior:'smooth'});
 }
 
 function showProject(type){
-
 document.getElementById("projects").style.display="none";
 document.getElementById("caseStudy").style.display="block";
 window.scrollTo(0,0);
@@ -243,117 +247,126 @@ let content="";
 if(type==="retail"){
 content=`
 <h2>Enterprise Retail Demand Forecasting System</h2>
+<p><b>Role:</b> Data Scientist<br>
+<b>Organization:</b> Accenture<br>
+<b>Duration:</b> March 2024 – Present</p>
 
 <h3>Project Overview</h3>
 <p>
-Designed and implemented a large-scale enterprise forecasting system 
-to generate rolling 57-week forecasts across multiple regions and channels. 
-The solution supports procurement planning, inventory optimization, 
-and long-term strategic decision-making.
+Designed and implemented a large-scale demand forecasting system for a global retail organization to generate rolling 57-week forecasts across multiple regions and sales channels. The solution supports strategic planning and inventory decision-making at various levels of granularity.
 </p>
 
 <h3>Scope</h3>
 <ul>
 <li>Weekly rolling 57-week forecasts</li>
-<li>Multi-region and multi-channel architecture</li>
-<li>Product-level forecasting with disaggregation to MPN–Sold_to</li>
-<li>Enterprise-scale Snowflake structured datasets</li>
+<li>Multiple regions and sales channels</li>
+<li>Product-level forecasting with disaggregation to MPN–Sold_to level</li>
+<li>Enterprise-scale structured data from Snowflake</li>
 </ul>
 
-<h3>End-to-End Architecture</h3>
+<h3>Technical Architecture</h3>
 <div class="flow-box">
-Snowflake Data Extraction
+Data Ingestion from Snowflake
 ↓
 Data Validation & Preprocessing
 (Negative value treatment | Missing handling | Continuity checks)
 ↓
-Intermittent Demand Detection Framework
+Intermittent Demand Detection
 ↓
-Segmentation (Intermittent vs Non-Intermittent Series)
+Segmentation of Non-Intermittent Series
 ↓
 Feature Engineering (Calendar | Holiday | Regional Signals)
 ↓
-Univariate + Multivariate Model Training
+Model Training & Evaluation
 ↓
 Model Ranking & Weighted Ensemble
 ↓
-Forecast Calibration (Spike Control Logic)
+Forecast Calibration (Spike Control)
 ↓
-Hierarchical Disaggregation to Lower Granularity
+Disaggregation to Lower Hierarchy Levels
 </div>
 
 <h3>Models Used</h3>
 <ul>
 <li>ETS, Holt-Winters, Theta</li>
-<li>ARIMA & SARIMA Variants</li>
+<li>ARIMA variants</li>
 <li>Naive & Seasonal Naive</li>
-<li>Random Forest</li>
-<li>XGBoost</li>
-<li>LightGBM</li>
-</ul>
-
-<h3>Advanced Techniques</h3>
-<ul>
-<li>Weighted ensemble based on performance ranking</li>
-<li>Forecast spike control calibration mechanism</li>
-<li>Hierarchical reconciliation logic</li>
-<li>Automated intermittent demand classification</li>
+<li>Random Forest, XGBoost, LightGBM</li>
 </ul>
 
 <h3>Business Impact</h3>
 <ul>
-<li>Enabled enterprise-level demand planning</li>
-<li>Improved forecast stability and robustness</li>
-<li>Reduced operational volatility</li>
-<li>Delivered actionable insights via root cause analysis</li>
+<li>Enabled data-driven planning across regions</li>
+<li>Improved forecast robustness via ensemble techniques</li>
+<li>Reduced volatility through calibration mechanisms</li>
+<li>Delivered actionable demand shift insights</li>
 </ul>
 `;
 }
 
 if(type==="accelerator"){
 content=`
-<h2>Forecast Accelerator – Automated Pipeline</h2>
+<h2>Forecast Accelerator</h2>
+<p><b>Role:</b> Data Scientist<br>
+<b>Organization:</b> Accenture</p>
 
 <h3>Project Overview</h3>
 <p>
-Developed a reusable forecasting accelerator that automates the 
-complete time series workflow with minimal manual intervention.
+Developed a reusable forecasting accelerator designed to automate the complete time series forecasting workflow. The tool minimizes manual intervention through configurable inputs.
 </p>
 
-<h3>User Configurable Inputs</h3>
-<ul>
-<li>Input file path</li>
-<li>Target & date column</li>
-<li>Forecast horizon</li>
-<li>Granularity selection</li>
-<li>Model type (Univariate / Multivariate)</li>
-<li>Start & End date</li>
-</ul>
-
-<h3>Workflow Architecture</h3>
+<h3>System Workflow</h3>
 <div class="flow-box">
 User Configuration
+(Input Path | Target | Date | Horizon | Model Type)
 ↓
-Automated Preprocessing
+Automated Data Preprocessing
 ↓
 Intermittent Detection
 ↓
 Feature Engineering
 ↓
-Model Training
+Model Training & Ranking
 ↓
-Model Comparison & Ranking
+Ensemble Forecast Generation
 ↓
-Weighted Ensemble Generation
-↓
-Final Forecast Output
+Final Output Delivery
 </div>
 
 <h3>Impact</h3>
 <ul>
 <li>Reduced development time significantly</li>
-<li>Standardized forecasting workflow</li>
-<li>Created scalable enterprise solution</li>
+<li>Standardized forecasting workflows</li>
+<li>Scalable reusable enterprise solution</li>
+</ul>
+`;
+}
+
+if(type==="dashboard"){
+content=`
+<h2>Hi-Tech Forecasting Demo Dashboard</h2>
+<p><b>Role:</b> Data Scientist<br>
+<b>Organization:</b> Accenture</p>
+
+<h3>Project Overview</h3>
+<p>
+Developed an interactive forecasting dashboard tailored for the hi-tech industry to demonstrate real-world forecasting applications and business impact scenarios.
+</p>
+
+<h3>Dashboard Capabilities</h3>
+<ul>
+<li>Historical vs predicted demand visualization</li>
+<li>Model performance comparison</li>
+<li>Scenario-based planning simulations</li>
+<li>Forecast accuracy metrics</li>
+<li>Business interpretation layer</li>
+</ul>
+
+<h3>Impact</h3>
+<ul>
+<li>Used for client demonstrations</li>
+<li>Improved stakeholder understanding</li>
+<li>Showcased end-to-end analytics capability</li>
 </ul>
 `;
 }
@@ -361,33 +374,46 @@ Final Forecast Output
 if(type==="jio"){
 content=`
 <h2>PAN-India Retail Sales Forecasting & Campaign Analysis</h2>
+<p><b>Role:</b> Data Science Analyst<br>
+<b>Organization:</b> Jio Platforms Limited<br>
+<b>Duration:</b> September 2022 – February 2024</p>
 
 <h3>Project Overview</h3>
 <p>
-Led forecasting initiative for PAN-India retail operations 
-using 3.2+ million transactional records at daily granularity.
+Led large-scale retail sales forecasting to predict daily sales at PAN-India and state levels while evaluating campaign effectiveness during peak retail periods.
 </p>
+
+<h3>Data Scale</h3>
+<ul>
+<li>3.2+ million transactional records</li>
+<li>Daily granularity</li>
+<li>Multi-location retail dataset</li>
+</ul>
 
 <h3>Technical Pipeline</h3>
 <div class="flow-box">
-Raw Transaction Data
+Data Transformation & Feature Engineering
 ↓
-Data Cleaning & Feature Engineering
+Time Series Modeling
 ↓
-Campaign & Coupon Variable Integration
+Campaign Impact Analysis
 ↓
-SARIMAX Modeling
+Performance Evaluation
 ↓
-LSTM Deep Learning Modeling
-↓
-Performance Evaluation & Deployment
+Deployable Forecasting Solution
 </div>
+
+<h3>Models Used</h3>
+<ul>
+<li>SARIMAX</li>
+<li>LSTM Deep Learning</li>
+</ul>
 
 <h3>Business Impact</h3>
 <ul>
-<li>Improved inventory planning</li>
+<li>Improved supply planning</li>
 <li>Quantified campaign effectiveness</li>
-<li>Delivered deployable forecasting system</li>
+<li>Operational forecasting deployment</li>
 </ul>
 `;
 }
@@ -398,37 +424,29 @@ content=`
 
 <h3>Project Overview</h3>
 <p>
-Developing predictive models for short-term and long-term 
-Brent crude oil price forecasting under volatile market conditions.
+Developing predictive models to forecast short-term and long-term Brent crude oil prices under highly volatile market conditions.
 </p>
 
 <h3>Modeling Framework</h3>
 <div class="flow-box">
-Historical Price Time Series Analysis
+Historical Time Series Analysis
 ↓
 Market Indicator Feature Engineering
 ↓
-ARIMA Modeling
+ARIMA Models
 ↓
 Tree-Based ML Models
 ↓
-LSTM Deep Learning
+LSTM Deep Learning Architectures
 ↓
-Directional & Point Estimate Forecasting
+Directional & Point Forecasting
 </div>
-
-<h3>Challenges</h3>
-<ul>
-<li>High volatility</li>
-<li>Non-stationary patterns</li>
-<li>Macro-economic uncertainty</li>
-</ul>
 
 <h3>Outcome</h3>
 <ul>
-<li>Improved forecasting robustness</li>
-<li>Built comparative evaluation framework</li>
 <li>Generated strategic directional insights</li>
+<li>Improved robustness under volatility</li>
+<li>Built comparative model evaluation framework</li>
 </ul>
 `;
 }
