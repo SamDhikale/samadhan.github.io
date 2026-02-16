@@ -11,33 +11,22 @@
 * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
 
 body {
-    background: #0f172a;
-    color: white;
-    scroll-behavior: smooth;
-    overflow-x:hidden;
+    background:#0f172a;
+    color:white;
 }
 
-/* NAVBAR */
 nav {
     position:fixed;
     width:100%;
-    top:0;
-    background: rgba(15,23,42,0.8);
-    backdrop-filter: blur(10px);
+    background:#020617;
     padding:15px 8%;
     display:flex;
     justify-content:space-between;
     z-index:1000;
 }
 
-nav a {
-    color:white;
-    text-decoration:none;
-    margin-left:20px;
-    font-size:0.9rem;
-}
+nav a { color:white; text-decoration:none; margin-left:20px; }
 
-/* HERO */
 header {
     height:100vh;
     display:flex;
@@ -48,40 +37,12 @@ header {
     background: radial-gradient(circle at top right,#1e3a8a,#0f172a);
 }
 
-header h1 {
-    font-size:3rem;
-}
+header h1 { font-size:3rem; }
 
-header p {
-    margin-top:15px;
-    color:#94a3b8;
-}
+section { padding:100px 10%; }
 
-.btn {
-    margin-top:25px;
-    padding:12px 28px;
-    background:#3b82f6;
-    border-radius:30px;
-    text-decoration:none;
-    color:white;
-    transition:0.3s;
-}
+h2 { text-align:center; margin-bottom:40px; }
 
-.btn:hover {
-    background:#2563eb;
-    transform:scale(1.05);
-}
-
-section {
-    padding:100px 10%;
-}
-
-h2 {
-    text-align:center;
-    margin-bottom:50px;
-}
-
-/* CARDS */
 .cards {
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
@@ -92,14 +53,8 @@ h2 {
     background:#1e293b;
     padding:25px;
     border-radius:15px;
-    transition:0.4s;
-    opacity:0;
-    transform:translateY(40px);
-}
-
-.card.show {
-    opacity:1;
-    transform:translateY(0);
+    cursor:pointer;
+    transition:0.3s;
 }
 
 .card:hover {
@@ -107,28 +62,37 @@ h2 {
     transform:translateY(-8px);
 }
 
-/* METRICS */
-.metrics {
-    display:flex;
-    justify-content:center;
-    gap:60px;
-    text-align:center;
-    flex-wrap:wrap;
+/* MODAL */
+.modal {
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.8);
+    overflow:auto;
+    padding:60px 10%;
 }
 
-.metric h3 {
-    font-size:2rem;
+.modal-content {
+    background:#1e293b;
+    padding:40px;
+    border-radius:15px;
+}
+
+.close {
+    float:right;
+    font-size:24px;
+    cursor:pointer;
     color:#3b82f6;
 }
 
-/* FOOTER */
 footer {
     text-align:center;
     padding:40px;
     background:#020617;
 }
-
-a { color:#3b82f6; }
 </style>
 </head>
 
@@ -138,74 +102,109 @@ a { color:#3b82f6; }
 <div><b>Samadhan Dhikale</b></div>
 <div>
 <a href="#projects">Projects</a>
-<a href="#skills">Skills</a>
 <a href="#contact">Contact</a>
 </div>
 </nav>
 
 <header>
 <h1>Enterprise Demand Forecasting Expert</h1>
-<p>Data Scientist | ML | Time Series | GenAI</p>
-<a href="#projects" class="btn">Explore Work</a>
-<a href="Samadhan_CV.pdf" class="btn">Download Resume</a>
+<p>Click on any project to view detailed case study</p>
 </header>
-
-<section>
-<h2>Impact Metrics</h2>
-<div class="metrics">
-<div class="metric">
-<h3 id="counter1">0</h3>
-<p>Years Experience</p>
-</div>
-<div class="metric">
-<h3 id="counter2">0</h3>
-<p>Million+ Records Processed</p>
-</div>
-<div class="metric">
-<h3 id="counter3">0</h3>
-<p>Week Forecast Horizon</p>
-</div>
-</div>
-</section>
 
 <section id="projects">
 <h2>Enterprise Projects</h2>
+
 <div class="cards">
 
-<div class="card">
-<h3>Global Retail Forecasting System</h3>
-<p>57-week rolling forecasts across regions using ensemble statistical and ML models with calibration and hierarchical disaggregation.</p>
+<div class="card" onclick="openModal('modal1')">
+<h3>Enterprise Retail Demand Forecasting</h3>
+<p>Accenture | 57-week rolling forecasts</p>
 </div>
 
-<div class="card">
+<div class="card" onclick="openModal('modal2')">
 <h3>Forecast Accelerator</h3>
-<p>Configurable automated forecasting engine reducing manual modeling effort and enabling production-ready outputs.</p>
+<p>End-to-End Automated Forecasting Pipeline</p>
 </div>
 
-<div class="card">
-<h3>PAN India Retail Forecasting</h3>
-<p>3.2M+ transactional records modeled using SARIMAX and LSTM for sales and campaign impact analysis.</p>
+<div class="card" onclick="openModal('modal3')">
+<h3>PAN-India Retail Sales Forecasting</h3>
+<p>Jio Platforms | 3.2M+ Records</p>
 </div>
 
-<div class="card">
-<h3>Brent Oil Prediction</h3>
-<p>Short and long-term crude oil price forecasting using ARIMA, ML and deep learning models.</p>
+<div class="card" onclick="openModal('modal4')">
+<h3>Brent Oil Spot Price Prediction</h3>
+<p>Energy Market Modeling</p>
 </div>
 
 </div>
 </section>
 
-<section id="skills">
-<h2>Technical Expertise</h2>
-<div class="cards">
-<div class="card">ARIMA | SARIMA | ETS | Theta</div>
-<div class="card">Random Forest | XGBoost | LightGBM</div>
-<div class="card">LSTM | TensorFlow | Keras</div>
-<div class="card">Ensemble Modeling & Calibration</div>
-<div class="card">Python | SQL | Snowflake</div>
-<div class="card">Business Decision Intelligence</div>
+<!-- MODALS -->
+
+<div id="modal1" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('modal1')">✖</span>
+<h2>Enterprise Retail Demand Forecasting System</h2>
+<p><b>Role:</b> Data Scientist | <b>Organization:</b> Accenture | <b>Duration:</b> Feb 2025 – Dec 2025</p>
+<br>
+<p><b>Overview:</b> Designed large-scale forecasting system generating weekly rolling 57-week forecasts across multiple regions and sales channels.</p>
+<br>
+<p><b>Technical Highlights:</b></p>
+<ul>
+<li>Data ingestion from Snowflake</li>
+<li>Intermittent demand detection</li>
+<li>Univariate models (ETS, Holt-Winters, Theta, SARIMA, ARIMA, Prophet)</li>
+<li>Multivariate models (RF, XGBoost, LightGBM)</li>
+<li>Weighted ensemble & calibration</li>
+<li>Hierarchical disaggregation to Sold-To level</li>
+</ul>
+<br>
+<p><b>Impact:</b> Enabled enterprise planning and reduced volatility using calibration mechanisms.</p>
 </div>
-</section>
+</div>
+
+<div id="modal2" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('modal2')">✖</span>
+<h2>Forecast Accelerator</h2>
+<p>Reusable automated forecasting pipeline allowing configuration of horizon, granularity, and model types.</p>
+<ul>
+<li>Automated preprocessing</li>
+<li>Univariate & Multivariate modeling</li>
+<li>Model ranking & ensemble</li>
+<li>Production-ready output generation</li>
+</ul>
+<p><b>Impact:</b> Reduced development time and standardized enterprise forecasting workflows.</p>
+</div>
+</div>
+
+<div id="modal3" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('modal3')">✖</span>
+<h2>PAN-India Retail Sales Forecasting</h2>
+<p><b>Organization:</b> Jio Platforms (2022–2024)</p>
+<p>Processed 3.2M+ records for daily sales forecasting using SARIMAX and LSTM models.</p>
+<ul>
+<li>Campaign & coupon impact analysis</li>
+<li>Daily demand forecasting</li>
+<li>Deployable operational solution</li>
+</ul>
+</div>
+</div>
+
+<div id="modal4" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('modal4')">✖</span>
+<h2>Brent Oil Spot Price Prediction</h2>
+<p>Developed short and long-term oil price forecasting models under volatile market conditions.</p>
+<ul>
+<li>ARIMA-based models</li>
+<li>Tree-based ML models</li>
+<li>LSTM deep learning models</li>
+<li>Directional & point forecasting</li>
+</ul>
+</div>
+</div>
 
 <section id="contact">
 <h2>Connect</h2>
@@ -224,32 +223,13 @@ Email: Samdhikale00@gmail.com
 </footer>
 
 <script>
-// Scroll Reveal
-const cards = document.querySelectorAll('.card');
-window.addEventListener('scroll', () => {
-cards.forEach(card => {
-const rect = card.getBoundingClientRect();
-if(rect.top < window.innerHeight - 100){
-card.classList.add('show');
-}
-});
-});
-
-// Animated Counters
-function animateCounter(id, target){
-let count = 0;
-const interval = setInterval(()=>{
-count++;
-document.getElementById(id).innerText = count;
-if(count >= target){
-clearInterval(interval);
-}
-},20);
+function openModal(id){
+document.getElementById(id).style.display="block";
 }
 
-animateCounter("counter1",4);
-animateCounter("counter2",3);
-animateCounter("counter3",57);
+function closeModal(id){
+document.getElementById(id).style.display="none";
+}
 </script>
 
 </body>
