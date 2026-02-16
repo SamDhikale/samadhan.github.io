@@ -3,97 +3,94 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sam D | Data Scientist</title>
+<title>Samadhan Dhikale | Data Scientist</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
 
 body {
-    background: #0f172a;
+    background: linear-gradient(135deg,#0f172a,#020617);
     color: white;
     scroll-behavior: smooth;
 }
 
 header {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
 }
 
 header h1 {
-    font-size: 3rem;
-    animation: fadeIn 1.5s ease-in-out;
+    font-size:3rem;
+    animation:fadeIn 1.5s ease-in-out;
 }
 
 header p {
-    margin-top: 15px;
-    font-size: 1.2rem;
-    color: #94a3b8;
-    animation: fadeIn 2s ease-in-out;
+    margin-top:15px;
+    color:#94a3b8;
+    font-size:1.2rem;
+    animation:fadeIn 2s ease-in-out;
 }
 
 .btn {
-    margin-top: 30px;
-    padding: 12px 25px;
-    background: #3b82f6;
-    color: white;
-    border-radius: 30px;
-    text-decoration: none;
-    transition: 0.3s;
+    margin-top:25px;
+    padding:12px 25px;
+    background:#3b82f6;
+    border-radius:30px;
+    text-decoration:none;
+    color:white;
+    transition:0.3s;
 }
 
 .btn:hover {
-    background: #2563eb;
-    transform: scale(1.05);
+    background:#2563eb;
+    transform:scale(1.05);
 }
 
 section {
-    padding: 80px 10%;
+    padding:80px 10%;
 }
 
 h2 {
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 2rem;
+    text-align:center;
+    margin-bottom:40px;
+    font-size:2rem;
 }
 
 .cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
 }
 
 .card {
-    background: #1e293b;
-    padding: 25px;
-    border-radius: 15px;
-    transition: 0.4s;
+    background:#1e293b;
+    padding:25px;
+    border-radius:15px;
+    transition:0.4s;
 }
 
 .card:hover {
-    transform: translateY(-10px);
-    background: #334155;
+    transform:translateY(-10px);
+    background:#334155;
 }
 
 footer {
-    text-align: center;
-    padding: 30px;
-    background: #020617;
+    background:#020617;
+    text-align:center;
+    padding:30px;
 }
 
+a { color:#3b82f6; text-decoration:none; }
+
 @keyframes fadeIn {
-    from {opacity: 0; transform: translateY(20px);}
-    to {opacity: 1; transform: translateY(0);}
+    from {opacity:0; transform:translateY(20px);}
+    to {opacity:1; transform:translateY(0);}
 }
 </style>
 </head>
@@ -101,56 +98,93 @@ footer {
 <body>
 
 <header>
-    <h1>Sam D</h1>
-    <p>Data Scientist | Forecasting | Machine Learning | GenAI</p>
-    <a href="#projects" class="btn">View My Work</a>
+<h1>Samadhan Dhikale</h1>
+<p>Data Scientist | Enterprise Demand Forecasting | Machine Learning | GenAI</p>
+<a href="#projects" class="btn">View Enterprise Projects</a>
 </header>
 
-<section id="about">
-    <h2>About Me</h2>
-    <p style="text-align:center; max-width:800px; margin:auto; color:#cbd5e1;">
-        Data Scientist specializing in global demand forecasting, machine learning,
-        and GenAI-powered analytics solutions for supply chain and retail enterprises.
-        Experienced in building scalable forecasting systems and AI-driven decision support tools.
-    </p>
+<section>
+<h2>About Me</h2>
+<p style="max-width:900px;margin:auto;text-align:center;color:#cbd5e1;">
+Data Scientist with 3.5+ years of experience in enterprise demand forecasting,
+time series modeling, machine learning and deep learning. 
+Specialized in building end-to-end forecasting pipelines including data ingestion,
+intermittent demand handling, ensemble modeling, forecast calibration and
+business interpretation layers. Experienced in delivering scalable analytics
+solutions for global retail and energy domains.
+</p>
 </section>
 
 <section id="projects">
-    <h2>Key Projects</h2>
-    <div class="cards">
-        <div class="card">
-            <h3>Global Demand Forecasting</h3>
-            <p>Built 57-week rolling forecasts across regions using ARIMA, ETS, SARIMA.</p>
-        </div>
-        <div class="card">
-            <h3>Forecasting Accelerator</h3>
-            <p>Developed multi-model time series engine with automated model selection.</p>
-        </div>
-        <div class="card">
-            <h3>GenAI Forecast Bot</h3>
-            <p>Integrated LLM to explain forecast outputs for business stakeholders.</p>
-        </div>
-        <div class="card">
-            <h3>LLM + ARIMA Hybrid</h3>
-            <p>Combined statistical forecasting with GenAI insights for demand planning.</p>
-        </div>
-    </div>
+<h2>Enterprise Projects</h2>
+<div class="cards">
+
+<div class="card">
+<h3>Enterprise Retail Demand Forecasting System</h3>
+<p><b>Accenture (2025)</b></p>
+<p>Built large-scale 57-week rolling forecasting system across multiple regions and channels using ensemble statistical and ML models. Implemented calibration, ranking and hierarchical disaggregation to sold-to level.</p>
+</div>
+
+<div class="card">
+<h3>Forecast Accelerator</h3>
+<p><b>Accenture – Internal Asset</b></p>
+<p>Designed configurable end-to-end automated forecasting engine allowing users to select models, horizon, granularity and generate production-ready forecasts with minimal manual effort.</p>
+</div>
+
+<div class="card">
+<h3>Hi-Tech Forecasting Demo Dashboard</h3>
+<p><b>Accenture</b></p>
+<p>Developed executive-friendly dashboard visualizing historical vs predicted demand, scenario simulations and model performance comparisons for client demonstrations.</p>
+</div>
+
+<div class="card">
+<h3>PAN-India Retail Sales Forecasting</h3>
+<p><b>Jio Platforms (2022–2024)</b></p>
+<p>Processed 3.2M+ records to build daily sales forecasting solution using SARIMAX and LSTM models. Evaluated campaign and coupon effectiveness for retail planning.</p>
+</div>
+
+<div class="card">
+<h3>Brent Oil Spot Price Prediction</h3>
+<p><b>Energy Market Modeling</b></p>
+<p>Developed short and long-term crude oil price forecasting models using ARIMA, tree-based ML models and deep learning architectures for volatile market conditions.</p>
+</div>
+
+</div>
 </section>
 
-<section id="skills">
-    <h2>Skills</h2>
-    <div class="cards">
-        <div class="card">Python</div>
-        <div class="card">Time Series (ARIMA, ETS)</div>
-        <div class="card">Machine Learning</div>
-        <div class="card">LLMs & GenAI</div>
-        <div class="card">Streamlit</div>
-        <div class="card">Supply Chain Analytics</div>
-    </div>
+<section>
+<h2>Technical Expertise</h2>
+<div class="cards">
+<div class="card">Time Series Forecasting (ARIMA, SARIMA, ETS, Theta)</div>
+<div class="card">Machine Learning (RF, XGBoost, LightGBM)</div>
+<div class="card">Deep Learning (LSTM, TensorFlow, Keras)</div>
+<div class="card">Ensemble Modeling & Forecast Calibration</div>
+<div class="card">Python, Pandas, NumPy, Scikit-Learn</div>
+<div class="card">SQL | Snowflake | Data Engineering</div>
+</div>
+</section>
+
+<section>
+<h2>Education</h2>
+<p style="text-align:center;color:#cbd5e1;">
+M.Sc. Applied Statistics & Informatics – Shivaji University (CGPA: 7.98) <br>
+B.Sc. Statistics – K.T.H.M College, Nashik (79%)
+</p>
+</section>
+
+<section>
+<h2>Connect</h2>
+<p style="text-align:center;">
+LinkedIn: <a href="https://www.linkedin.com/in/samadhan-dhikale-4728961a8/" target="_blank">
+www.linkedin.com/in/samadhan-dhikale-4728961a8
+</a>
+<br><br>
+Email: Samdhikale00@gmail.com
+</p>
 </section>
 
 <footer>
-    <p>© 2026 Sam D | Built with GitHub Pages</p>
+<p>© 2026 Samadhan Dhikale | Enterprise Data Science Portfolio</p>
 </footer>
 
 </body>
