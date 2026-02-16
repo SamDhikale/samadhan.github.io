@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Samadhan Dhikale | Data Scientist</title>
+<title>Samadhan Dhikale | Enterprise Data Scientist</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
@@ -11,11 +11,33 @@
 * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
 
 body {
-    background: linear-gradient(135deg,#0f172a,#020617);
+    background: #0f172a;
     color: white;
     scroll-behavior: smooth;
+    overflow-x:hidden;
 }
 
+/* NAVBAR */
+nav {
+    position:fixed;
+    width:100%;
+    top:0;
+    background: rgba(15,23,42,0.8);
+    backdrop-filter: blur(10px);
+    padding:15px 8%;
+    display:flex;
+    justify-content:space-between;
+    z-index:1000;
+}
+
+nav a {
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+    font-size:0.9rem;
+}
+
+/* HERO */
 header {
     height:100vh;
     display:flex;
@@ -23,23 +45,21 @@ header {
     justify-content:center;
     align-items:center;
     text-align:center;
+    background: radial-gradient(circle at top right,#1e3a8a,#0f172a);
 }
 
 header h1 {
     font-size:3rem;
-    animation:fadeIn 1.5s ease-in-out;
 }
 
 header p {
     margin-top:15px;
     color:#94a3b8;
-    font-size:1.2rem;
-    animation:fadeIn 2s ease-in-out;
 }
 
 .btn {
     margin-top:25px;
-    padding:12px 25px;
+    padding:12px 28px;
     background:#3b82f6;
     border-radius:30px;
     text-decoration:none;
@@ -53,15 +73,15 @@ header p {
 }
 
 section {
-    padding:80px 10%;
+    padding:100px 10%;
 }
 
 h2 {
     text-align:center;
-    margin-bottom:40px;
-    font-size:2rem;
+    margin-bottom:50px;
 }
 
+/* CARDS */
 .cards {
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
@@ -73,46 +93,79 @@ h2 {
     padding:25px;
     border-radius:15px;
     transition:0.4s;
+    opacity:0;
+    transform:translateY(40px);
+}
+
+.card.show {
+    opacity:1;
+    transform:translateY(0);
 }
 
 .card:hover {
-    transform:translateY(-10px);
     background:#334155;
+    transform:translateY(-8px);
 }
 
-footer {
-    background:#020617;
+/* METRICS */
+.metrics {
+    display:flex;
+    justify-content:center;
+    gap:60px;
     text-align:center;
-    padding:30px;
+    flex-wrap:wrap;
 }
 
-a { color:#3b82f6; text-decoration:none; }
-
-@keyframes fadeIn {
-    from {opacity:0; transform:translateY(20px);}
-    to {opacity:1; transform:translateY(0);}
+.metric h3 {
+    font-size:2rem;
+    color:#3b82f6;
 }
+
+/* FOOTER */
+footer {
+    text-align:center;
+    padding:40px;
+    background:#020617;
+}
+
+a { color:#3b82f6; }
 </style>
 </head>
 
 <body>
 
+<nav>
+<div><b>Samadhan Dhikale</b></div>
+<div>
+<a href="#projects">Projects</a>
+<a href="#skills">Skills</a>
+<a href="#contact">Contact</a>
+</div>
+</nav>
+
 <header>
-<h1>Samadhan Dhikale</h1>
-<p>Data Scientist | Enterprise Demand Forecasting | Machine Learning | GenAI</p>
-<a href="#projects" class="btn">View Enterprise Projects</a>
+<h1>Enterprise Demand Forecasting Expert</h1>
+<p>Data Scientist | ML | Time Series | GenAI</p>
+<a href="#projects" class="btn">Explore Work</a>
+<a href="Samadhan_CV.pdf" class="btn">Download Resume</a>
 </header>
 
 <section>
-<h2>About Me</h2>
-<p style="max-width:900px;margin:auto;text-align:center;color:#cbd5e1;">
-Data Scientist with 3.5+ years of experience in enterprise demand forecasting,
-time series modeling, machine learning and deep learning. 
-Specialized in building end-to-end forecasting pipelines including data ingestion,
-intermittent demand handling, ensemble modeling, forecast calibration and
-business interpretation layers. Experienced in delivering scalable analytics
-solutions for global retail and energy domains.
-</p>
+<h2>Impact Metrics</h2>
+<div class="metrics">
+<div class="metric">
+<h3 id="counter1">0</h3>
+<p>Years Experience</p>
+</div>
+<div class="metric">
+<h3 id="counter2">0</h3>
+<p>Million+ Records Processed</p>
+</div>
+<div class="metric">
+<h3 id="counter3">0</h3>
+<p>Week Forecast Horizon</p>
+</div>
+</div>
 </section>
 
 <section id="projects">
@@ -120,63 +173,46 @@ solutions for global retail and energy domains.
 <div class="cards">
 
 <div class="card">
-<h3>Enterprise Retail Demand Forecasting System</h3>
-<p><b>Accenture (2025)</b></p>
-<p>Built large-scale 57-week rolling forecasting system across multiple regions and channels using ensemble statistical and ML models. Implemented calibration, ranking and hierarchical disaggregation to sold-to level.</p>
+<h3>Global Retail Forecasting System</h3>
+<p>57-week rolling forecasts across regions using ensemble statistical and ML models with calibration and hierarchical disaggregation.</p>
 </div>
 
 <div class="card">
 <h3>Forecast Accelerator</h3>
-<p><b>Accenture – Internal Asset</b></p>
-<p>Designed configurable end-to-end automated forecasting engine allowing users to select models, horizon, granularity and generate production-ready forecasts with minimal manual effort.</p>
+<p>Configurable automated forecasting engine reducing manual modeling effort and enabling production-ready outputs.</p>
 </div>
 
 <div class="card">
-<h3>Hi-Tech Forecasting Demo Dashboard</h3>
-<p><b>Accenture</b></p>
-<p>Developed executive-friendly dashboard visualizing historical vs predicted demand, scenario simulations and model performance comparisons for client demonstrations.</p>
+<h3>PAN India Retail Forecasting</h3>
+<p>3.2M+ transactional records modeled using SARIMAX and LSTM for sales and campaign impact analysis.</p>
 </div>
 
 <div class="card">
-<h3>PAN-India Retail Sales Forecasting</h3>
-<p><b>Jio Platforms (2022–2024)</b></p>
-<p>Processed 3.2M+ records to build daily sales forecasting solution using SARIMAX and LSTM models. Evaluated campaign and coupon effectiveness for retail planning.</p>
-</div>
-
-<div class="card">
-<h3>Brent Oil Spot Price Prediction</h3>
-<p><b>Energy Market Modeling</b></p>
-<p>Developed short and long-term crude oil price forecasting models using ARIMA, tree-based ML models and deep learning architectures for volatile market conditions.</p>
+<h3>Brent Oil Prediction</h3>
+<p>Short and long-term crude oil price forecasting using ARIMA, ML and deep learning models.</p>
 </div>
 
 </div>
 </section>
 
-<section>
+<section id="skills">
 <h2>Technical Expertise</h2>
 <div class="cards">
-<div class="card">Time Series Forecasting (ARIMA, SARIMA, ETS, Theta)</div>
-<div class="card">Machine Learning (RF, XGBoost, LightGBM)</div>
-<div class="card">Deep Learning (LSTM, TensorFlow, Keras)</div>
-<div class="card">Ensemble Modeling & Forecast Calibration</div>
-<div class="card">Python, Pandas, NumPy, Scikit-Learn</div>
-<div class="card">SQL | Snowflake | Data Engineering</div>
+<div class="card">ARIMA | SARIMA | ETS | Theta</div>
+<div class="card">Random Forest | XGBoost | LightGBM</div>
+<div class="card">LSTM | TensorFlow | Keras</div>
+<div class="card">Ensemble Modeling & Calibration</div>
+<div class="card">Python | SQL | Snowflake</div>
+<div class="card">Business Decision Intelligence</div>
 </div>
 </section>
 
-<section>
-<h2>Education</h2>
-<p style="text-align:center;color:#cbd5e1;">
-M.Sc. Applied Statistics & Informatics – Shivaji University (CGPA: 7.98) <br>
-B.Sc. Statistics – K.T.H.M College, Nashik (79%)
-</p>
-</section>
-
-<section>
+<section id="contact">
 <h2>Connect</h2>
 <p style="text-align:center;">
-LinkedIn: <a href="https://www.linkedin.com/in/samadhan-dhikale-4728961a8/" target="_blank">
-www.linkedin.com/in/samadhan-dhikale-4728961a8
+LinkedIn: 
+<a href="https://www.linkedin.com/in/samadhan-dhikale-4728961a8/" target="_blank">
+linkedin.com/in/samadhan-dhikale-4728961a8
 </a>
 <br><br>
 Email: Samdhikale00@gmail.com
@@ -184,8 +220,37 @@ Email: Samdhikale00@gmail.com
 </section>
 
 <footer>
-<p>© 2026 Samadhan Dhikale | Enterprise Data Science Portfolio</p>
+© 2026 Samadhan Dhikale | Enterprise AI Portfolio
 </footer>
+
+<script>
+// Scroll Reveal
+const cards = document.querySelectorAll('.card');
+window.addEventListener('scroll', () => {
+cards.forEach(card => {
+const rect = card.getBoundingClientRect();
+if(rect.top < window.innerHeight - 100){
+card.classList.add('show');
+}
+});
+});
+
+// Animated Counters
+function animateCounter(id, target){
+let count = 0;
+const interval = setInterval(()=>{
+count++;
+document.getElementById(id).innerText = count;
+if(count >= target){
+clearInterval(interval);
+}
+},20);
+}
+
+animateCounter("counter1",4);
+animateCounter("counter2",3);
+animateCounter("counter3",57);
+</script>
 
 </body>
 </html>
