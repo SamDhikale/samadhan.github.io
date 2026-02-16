@@ -1,51 +1,157 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Sam D | Data Scientist</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 40px;
-            background-color: #f4f4f4;
-        }
-        h1 { color: #222; }
-        h2 { color: #444; margin-top: 30px; }
-        .section { margin-bottom: 20px; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sam D | Data Scientist</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #0f172a;
+    color: white;
+    scroll-behavior: smooth;
+}
+
+header {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 3rem;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+header p {
+    margin-top: 15px;
+    font-size: 1.2rem;
+    color: #94a3b8;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.btn {
+    margin-top: 30px;
+    padding: 12px 25px;
+    background: #3b82f6;
+    color: white;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #2563eb;
+    transform: scale(1.05);
+}
+
+section {
+    padding: 80px 10%;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2rem;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: #1e293b;
+    padding: 25px;
+    border-radius: 15px;
+    transition: 0.4s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    background: #334155;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    background: #020617;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+</style>
 </head>
+
 <body>
 
-<h1>Sam D</h1>
-<p><b>Data Scientist | Forecasting | Machine Learning | GenAI</b></p>
+<header>
+    <h1>Sam D</h1>
+    <p>Data Scientist | Forecasting | Machine Learning | GenAI</p>
+    <a href="#projects" class="btn">View My Work</a>
+</header>
 
-<div class="section">
-<h2>About Me</h2>
-<p>
-Data Scientist specializing in global demand forecasting, machine learning, 
-and GenAI-powered analytics solutions for supply chain and retail enterprises.
-</p>
-</div>
+<section id="about">
+    <h2>About Me</h2>
+    <p style="text-align:center; max-width:800px; margin:auto; color:#cbd5e1;">
+        Data Scientist specializing in global demand forecasting, machine learning,
+        and GenAI-powered analytics solutions for supply chain and retail enterprises.
+        Experienced in building scalable forecasting systems and AI-driven decision support tools.
+    </p>
+</section>
 
-<div class="section">
-<h2>Key Projects</h2>
-<ul>
-<li>Global Retail Demand Forecasting – 57-week rolling forecasts</li>
-<li>Forecasting Accelerator – ARIMA, ETS, SARIMA model engine</li>
-<li>GenAI Forecast Explanation Bot</li>
-<li>LLM + Time Series Hybrid Model</li>
-</ul>
-</div>
+<section id="projects">
+    <h2>Key Projects</h2>
+    <div class="cards">
+        <div class="card">
+            <h3>Global Demand Forecasting</h3>
+            <p>Built 57-week rolling forecasts across regions using ARIMA, ETS, SARIMA.</p>
+        </div>
+        <div class="card">
+            <h3>Forecasting Accelerator</h3>
+            <p>Developed multi-model time series engine with automated model selection.</p>
+        </div>
+        <div class="card">
+            <h3>GenAI Forecast Bot</h3>
+            <p>Integrated LLM to explain forecast outputs for business stakeholders.</p>
+        </div>
+        <div class="card">
+            <h3>LLM + ARIMA Hybrid</h3>
+            <p>Combined statistical forecasting with GenAI insights for demand planning.</p>
+        </div>
+    </div>
+</section>
 
-<div class="section">
-<h2>Skills</h2>
-<p>Python | ARIMA | SARIMA | ETS | XGBoost | LSTM | Streamlit | LangChain | LLMs</p>
-</div>
+<section id="skills">
+    <h2>Skills</h2>
+    <div class="cards">
+        <div class="card">Python</div>
+        <div class="card">Time Series (ARIMA, ETS)</div>
+        <div class="card">Machine Learning</div>
+        <div class="card">LLMs & GenAI</div>
+        <div class="card">Streamlit</div>
+        <div class="card">Supply Chain Analytics</div>
+    </div>
+</section>
 
-<div class="section">
-<h2>Contact</h2>
-<p>LinkedIn: Add your link here</p>
-<p>GitHub: Add your link here</p>
-</div>
+<footer>
+    <p>© 2026 Sam D | Built with GitHub Pages</p>
+</footer>
 
 </body>
 </html>
