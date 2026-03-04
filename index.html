@@ -1241,8 +1241,8 @@ footer {
       Open to Forecasting Specialist, Senior Data Scientist, and ML Engineer roles.
     </p>
     <div class="contact-links">
-      <a href="mailto:samdhikale00@gmail.com" class="contact-link">
-        <i class="fas fa-envelope"></i> samdhikale00@gmail.com
+      <a href="/cdn-cgi/l/email-protection#7605171b121e1f1d171a13464636111b171f1a5815191b" class="contact-link">
+        <i class="fas fa-envelope"></i> <span class="__cf_email__" data-cfemail="4b382a262f2322202a272e7b7b0b2c262a222765282426">[email&#160;protected]</span>
       </a>
       <a href="https://www.linkedin.com/in/samadhan-dhikale-4728961a8" target="_blank" class="contact-link">
         <i class="fab fa-linkedin"></i> LinkedIn Profile
@@ -1267,7 +1267,7 @@ footer {
   </div>
 </div>
 
-<script data-cfasync="false">
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false">
 // Scroll animations
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
@@ -1565,25 +1565,50 @@ const modals = {
 
 function openModal(key) {
   const m = modals[key];
-  const archSection = m.arch ? `<div class="modal-section"><h4>Pipeline Architecture</h4><div class="arch-diagram">${m.arch}</div></div>` : '';
-  document.getElementById('modalBody').innerHTML = `
-    <div class="modal-badge">${m.badge}</div>
-    <div class="modal-title">${m.title}</div>
-    <div class="modal-org">${m.org}</div>
-    <div class="modal-metrics">
-      ${m.metrics.map(mt => `<div class="modal-metric"><div class="modal-metric-val">${mt.val}</div><div class="modal-metric-key">${mt.key}</div></div>`).join('')}
-    </div>
-    ${archSection}
-    <div class="modal-section"><h4>Business Problem</h4><p>${m.problem}</p></div>
-    <div class="modal-section"><h4>Technical Approach</h4><p>${m.solution}</p></div>
-    <div class="modal-section"><h4>Key Outcomes & Impact</h4><ul>${m.impact.map(i => `<li>${i}</li>`).join('')}</ul></div>
-    <div class="modal-section"><h4>Tech Stack</h4><div class="modal-tech">${m.tech.map(t => `<span class="tag">${t}</span>`).join('')}</div></div>
-  `;
+  const archSection = m.arch ? '<div class="modal-section"><h4>Pipeline Architecture</h4><div class="arch-diagram">' + m.arch + '</div></div>' : '';
+  document.getElementById('modalBody').innerHTML =
+    '<div class="modal-badge">' + m.badge + '</div>' +
+    '<div class="modal-title">' + m.title + '</div>' +
+    '<div class="modal-org">' + m.org + '</div>' +
+    '<div class="modal-metrics">' +
+      m.metrics.map(mt => '<div class="modal-metric"><div class="modal-metric-val">' + mt.val + '</div><div class="modal-metric-key">' + mt.key + '</div></div>').join('') +
+    '</div>' +
+    archSection +
+    '<div class="modal-section"><h4>Business Problem</h4><p>' + m.problem + '</p></div>' +
+    '<div class="modal-section"><h4>Technical Approach</h4><p>' + m.solution + '</p></div>' +
+    '<div class="modal-section"><h4>Key Outcomes & Impact</h4><ul>' + m.impact.map(i => '<li>' + i + '</li>').join('') + '</ul></div>' +
+    '<div class="modal-section"><h4>Tech Stack</h4><div class="modal-tech">' + m.tech.map(t => '<span class="tag">' + t + '</span>').join('') + '</div></div>';
   document.getElementById('modalOverlay').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
 
-function closeModal(e) {
-  if(e.target === document.getElementById('modalOverlay')) closeModalDirect();
+function closeModalDirect() {
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
 }
-functi
+
+function closeModal(e) {
+  if (e.target === document.getElementById('modalOverlay')) closeModalDirect();
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeModalDirect();
+});
+
+// Nav active state on scroll
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('nav ul li a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 120) current = s.id;
+  });
+  navLinks.forEach(a => {
+    a.classList.remove('active');
+    if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+  });
+  document.querySelector('nav').style.background = window.scrollY > 50 ? 'rgba(6,13,26,0.98)' : 'transparent';
+});
+</script>
+</body>
+</html>j
