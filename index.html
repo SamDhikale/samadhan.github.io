@@ -162,29 +162,82 @@ section { position: relative; z-index: 1; padding: 120px 6%; }
 
 .hero-stats {
   display: flex;
-  gap: 40px;
-  margin-bottom: 44px;
+  align-items: center;
+  gap: 32px;
+  margin-bottom: 28px;
   flex-wrap: wrap;
 }
 
-.stat {
-  display: flex;
-  flex-direction: column;
-}
-.stat-num {
+.stat { display: flex; flex-direction: column; }
+
+.stat-company {
   font-family: 'Syne', sans-serif;
-  font-size: 36px;
+  font-size: 17px;
   font-weight: 800;
   color: var(--white);
-  line-height: 1;
+  line-height: 1.2;
 }
-.stat-num span { color: var(--accent); }
-.stat-label {
-  font-size: 11px;
+
+.stat-role {
+  font-size: 12px;
+  color: var(--accent);
+  font-weight: 500;
+  margin-top: 3px;
+}
+
+.stat-tenure {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
   color: var(--muted);
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
   margin-top: 4px;
+  letter-spacing: 0.5px;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 44px;
+  background: var(--border);
+  flex-shrink: 0;
+}
+
+.hero-proofs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 40px;
+  max-width: 640px;
+}
+
+.proof-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: rgba(0,212,255,0.04);
+  border: 1px solid rgba(0,212,255,0.12);
+  border-radius: 10px;
+  padding: 13px 18px;
+  transition: border-color 0.2s;
+}
+.proof-card:hover { border-color: rgba(0,212,255,0.28); }
+
+.proof-card i {
+  color: var(--accent);
+  font-size: 14px;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.proof-text {
+  font-size: 13.5px;
+  color: var(--text);
+  opacity: 0.85;
+  line-height: 1.6;
+}
+
+.proof-text strong {
+  color: var(--white);
+  font-weight: 700;
+  opacity: 1;
 }
 
 .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
@@ -756,10 +809,28 @@ footer {
     Specialist in demand forecasting, automated ML pipelines, and deep learning for time series.
   </p>
   <div class="hero-stats">
-    <div class="stat"><div class="stat-num">97<span>%</span></div><div class="stat-label">Peak Forecast Accuracy</div></div>
-    <div class="stat"><div class="stat-num">3.2<span>M+</span></div><div class="stat-label">Records Processed</div></div>
-    <div class="stat"><div class="stat-num">30<span>+</span></div><div class="stat-label">Models Implemented</div></div>
-    <div class="stat"><div class="stat-num">3.5<span>yr</span></div><div class="stat-label">Industry Experience</div></div>
+    <div class="stat">
+      <div class="stat-company">Jio Platforms Limited</div>
+      <div class="stat-role">Data Science Analyst</div>
+      <div class="stat-tenure">Sep 2022 – Feb 2025 · 2.5 yrs</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <div class="stat-company">Accenture</div>
+      <div class="stat-role">Data Scientist · Supply Chain & Analytics</div>
+      <div class="stat-tenure">Feb 2025 – Present</div>
+    </div>
+  </div>
+
+  <div class="hero-proofs">
+    <div class="proof-card">
+      <i class="fas fa-chart-line"></i>
+      <div class="proof-text">Elevated PAN-India retail forecast accuracy from <strong>45% → 97%</strong> using multivariate models with state-level festive impact engineering across 1,200 stores</div>
+    </div>
+    <div class="proof-card">
+      <i class="fas fa-cogs"></i>
+      <div class="proof-text">Built an enterprise Forecast Accelerator at Accenture — <strong>30+ models</strong>, fully config-driven, zero code changes needed, with end-to-end MLflow experiment tracking</div>
+    </div>
   </div>
   <div class="hero-btns">
     <button class="btn-primary" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">
@@ -775,7 +846,7 @@ footer {
 <section id="experience">
   <div class="section-label">Career Journey</div>
   <h2 class="section-title">Work Experience</h2>
-  <p class="section-sub">Enterprise data science across India's largest telecom & a global consulting leader.</p>
+  <p class="section-sub">Enterprise retail forecasting at Reliance Jio & supply chain analytics at Accenture.</p>
 
   <div class="timeline">
 
@@ -792,46 +863,55 @@ footer {
       <div class="project-list">
 
         <div class="proj-item">
-          <div class="impact-badge"><i class="fas fa-chart-line"></i> Enterprise Client · 57-Week Forecast</div>
-          <div class="proj-name"><i class="fas fa-store"></i> Enterprise Demand Forecasting (Large Retail Client)</div>
+          <div class="impact-badge"><i class="fas fa-chart-line"></i> Supply Chain Analytics · 57-Week Rolling Forecast · Snowflake</div>
+          <div class="proj-name"><i class="fas fa-store"></i> Enterprise Demand Forecasting System (Large Retail Client)</div>
           <div class="proj-desc">
-            End-to-end demand forecasting system for a large enterprise retail client with global operations.
-            Built 57-week forward-looking forecasts at store-SKU level. Delivered Cum5 accuracy benchmarking,
-            hierarchical reconciliation, and automated reporting for business stakeholders.
+            Designed and owned the end-to-end demand forecasting pipeline for a large global retail client within Accenture's Supply Chain &amp; Analytics practice.
+            Ingested data from Snowflake, handled time series continuity, negative demand corrections, and intermittent vs. non-intermittent series identification.
+            Segmented time series by demand pattern and ran rolling backtesting across the full model suite — univariate (ARIMA, SARIMA, ETS, Holt-Winters, Theta, Croston, Seasonal Naive), ML (Random Forest, XGBoost, LightGBM), and DL (NHITS, TimesNet).
+            Built a ranking-based ensemble by benchmarking all models, selecting top performers per series, and applying weighted averaging to improve stability.
+            Implemented forecast calibration to reduce abnormal spikes and improve business interpretability.
+            Disaggregated aggregate forecasts down to MPN–Sold_to hierarchy level to support regional and channel-level supply chain planning.
+            Delivered New Product Forecasting capability for items with no historical demand.
+            Primary accuracy metric: Cum5 (Last 5-Week Cumulative Accuracy).
           </div>
           <div class="proj-tags">
-            <span class="tag">Hierarchical Forecasting</span><span class="tag">XGBoost</span>
-            <span class="tag">LightGBM</span><span class="tag">NHITS</span><span class="tag">TimesNet</span>
-            <span class="tag">MLFLOW</span><span class="tag">Cum5 Accuracy</span>
+            <span class="tag">Snowflake</span><span class="tag">Hierarchical Disaggregation</span><span class="tag">Intermittent Demand</span>
+            <span class="tag">Croston / SBJ</span><span class="tag">XGBoost</span><span class="tag">LightGBM</span>
+            <span class="tag">NHITS · TimesNet</span><span class="tag">Ensemble + Calibration</span>
+            <span class="tag">New Product Forecasting</span><span class="tag">Cum5 Accuracy</span><span class="tag">MLflow</span>
           </div>
         </div>
 
         <div class="proj-item">
-          <div class="impact-badge"><i class="fas fa-bolt"></i> Internal Asset · Reusable Pipeline</div>
+          <div class="impact-badge"><i class="fas fa-bolt"></i> Internal Asset · Zero-Code Forecasting Engine · Full Model Suite</div>
           <div class="proj-name"><i class="fas fa-cogs"></i> Forecast Accelerator</div>
           <div class="proj-desc">
-            Designed and built an internal accelerator that enables any team member to run a full
-            forecasting pipeline — 14 univariate models, 4 ML models, 4 DL models — via config file only,
-            with zero code changes. Integrated MLflow experiment tracking for full reproducibility.
+            Built a modular, config-driven forecasting engine that standardizes the full modeling workflow so any team member can run experiments by editing a config file — no changes to core modules, no manual intervention.
+            Covers the complete pipeline: data validation → intermittent demand detection → segmentation → advanced feature engineering (lag, MA, calendar, sin/cos, demand ratios) → multiple feature selection methods (SFS, forward selection, VIF, L1/L2) → outlier handling → model benchmarking → ensemble → evaluation reports.
+            Supports 30+ models: univariate (ARIMA, SARIMA, ETS, Holt-Winters, Theta, Croston, SBJ, MA, FBProphet, Naive variants), ML (RF, XGBoost, LGBM, AdaBoost, FBProphet multivariate), DL (NHITS, NBEATS, TimesNet, LSTM, GRU).
+            MLflow integrated throughout for full experiment tracking, model registry, and reproducibility.
           </div>
           <div class="proj-tags">
-            <span class="tag">ARIMA · SARIMA · ETS</span><span class="tag">RF · XGB · LGBM</span>
-            <span class="tag">LSTM · GRU · NHITS · TimesNet</span><span class="tag">MLflow</span>
-            <span class="tag">Config-Driven Pipeline</span><span class="tag">statsforecast</span><span class="tag">darts</span>
+            <span class="tag">30+ Models</span><span class="tag">Config-Driven</span><span class="tag">MLflow</span>
+            <span class="tag">NHITS · NBEATS · TimesNet · LSTM · GRU</span>
+            <span class="tag">Croston · Theta · ETS</span><span class="tag">RF · XGB · LGBM · AdaBoost</span>
+            <span class="tag">Advanced FE + Feature Selection</span><span class="tag">statsforecast · darts</span>
           </div>
         </div>
 
         <div class="proj-item">
-          <div class="impact-badge"><i class="fas fa-desktop"></i> Internal Asset · Client Demo</div>
-          <div class="proj-name"><i class="fas fa-chart-bar"></i> Hi-Tech Forecasting Dashboard</div>
+          <div class="impact-badge"><i class="fas fa-desktop"></i> Internal Asset · Persona-Driven · Client Demo Tool</div>
+          <div class="proj-name"><i class="fas fa-chart-bar"></i> Hi-Tech Forecasting Demo Dashboard</div>
           <div class="proj-desc">
-            Interactive Streamlit dashboard built as an internal asset for client demonstrations.
-            Showcases live forecasting capabilities, model comparison, and visual analytics to
-            communicate forecasting value to business stakeholders.
+            Interactive Streamlit dashboard built as a client-facing demo asset showcasing the full forecasting lifecycle for the hi-tech industry.
+            Persona-driven design: Data Scientist sees the full pipeline, Demand Planner sees planning-relevant views, Supply Chain Executive sees only final outputs and KPIs.
+            Sections: demand distribution (yearly/channel/geographic), STL decomposition, holiday &amp; promotion effects, data preprocessing steps, ABC-XYZ segmentation visuals, feature engineering (Boruta, correlation-based selection), model comparison, historical vs. forecast visualization, scenario-based simulations, accuracy metrics, New Product Forecasting, and business-friendly explanations.
           </div>
           <div class="proj-tags">
-            <span class="tag">Streamlit</span><span class="tag">Plotly</span>
-            <span class="tag">Model Comparison</span><span class="tag">Interactive Analytics</span>
+            <span class="tag">Streamlit</span><span class="tag">Persona-Driven UX</span><span class="tag">Plotly · Seaborn</span>
+            <span class="tag">ABC-XYZ Segmentation</span><span class="tag">STL Decomposition</span>
+            <span class="tag">Boruta Feature Selection</span><span class="tag">Scenario Simulation</span><span class="tag">New Product Forecasting</span>
           </div>
         </div>
 
@@ -851,43 +931,53 @@ footer {
       <div class="project-list">
 
         <div class="proj-item">
-          <div class="impact-badge"><i class="fas fa-arrow-up"></i> Accuracy: 45-50% → 90-97%+</div>
-          <div class="proj-name"><i class="fas fa-store-alt"></i> PAN-India Retail Trends Store Sales Forecasting</div>
+          <div class="impact-badge"><i class="fas fa-arrow-up"></i> Accuracy: 45-50% → 90-97%+ · 1,200 Trends Stores · 4.5M+ Rows</div>
+          <div class="proj-name"><i class="fas fa-store-alt"></i> Reliance Trends Store Sales Forecasting (PAN-India)</div>
           <div class="proj-desc">
-            Built PAN-India daily sales forecasting system processing 3.2M+ records across thousands of retail outlets.
-            Elevated MAPE-based accuracy from a baseline of 45–50% up to 90–95% at national level and 85–95% at state level.
-            Peak accuracy reached 97–98%. Implemented multi-level hierarchical forecasting with seasonal decomposition.
+            Built a 7-day rolling daily sales forecasting system for 1,200 Reliance Trends stores within a broader 3,500-store retail network. Data spanned from Sep 2021 with ~4.5M total rows across monthly Excel files, supplemented by a store master and promotional offers calendar.
+            Business teams used forecasts to identify expected shortfalls and trigger targeted promotional campaigns before month-end to meet sales targets.
+            Baseline univariate models (ARIMA, SARIMA, FBProphet, LSTM) gave 45–55% MAPE accuracy. Shifted to multivariate models incorporating LWSales, LMSales, weekday, and festive flags — running separate models for PAN-India and each state.
+            Identified regional festive effects per state; engineered positive pre-festive and negative post-festive weightages to capture human buying behavior accurately.
+            After 1 year of live forward testing, finalized SARIMAX and LSTM as production models, achieving 90–95% accuracy nationally and 85–95% at state level (peak: 97–98%).
+            Deployed via a Pydash UI connected to the data engineering pipeline on Azure Cloud.
           </div>
           <div class="proj-tags">
-            <span class="tag">FBProphet</span><span class="tag">SARIMA</span><span class="tag">Holt-Winters</span>
-            <span class="tag">LightGBM</span><span class="tag">MAPE</span><span class="tag">PAN-India Scale</span>
-            <span class="tag">3.2M+ Records</span>
+            <span class="tag">SARIMAX · LSTM</span><span class="tag">Festive Flag Engineering</span><span class="tag">State-Level Modeling</span>
+            <span class="tag">Promotional Calendar</span><span class="tag">FBProphet</span><span class="tag">1 Year Forward Testing</span>
+            <span class="tag">Azure Cloud</span><span class="tag">Pydash UI</span><span class="tag">MAPE · 4.5M+ Rows</span>
           </div>
         </div>
 
         <div class="proj-item">
+          <div class="impact-badge"><i class="fas fa-chart-line"></i> 81% Directional Accuracy · 52 Macro Features · EIA Dataset</div>
           <div class="proj-name"><i class="fas fa-oil-can"></i> Brent Oil Spot Price Prediction</div>
           <div class="proj-desc">
-            Time-series forecasting of Brent crude oil prices for the petrochemical business unit.
-            Handled extreme volatility, regime changes, and external macro-economic factors
-            using ensemble strategies and deep learning models.
+            Short-term (monthly) and long-term (quarterly) crude oil price forecasting for the petrochemical business unit to support procurement strategy and market planning.
+            Dataset: 52 macro-economic variables (supply, demand, inventory, production, consumption) from the EIA — Jan 1997 to Jul 2024 (330 months / 110 quarters).
+            Standard feature selection (forward selection, backward elimination, VIF) failed due to high multicollinearity in supply-demand variables. Solved using Lasso regression to auto-select important features, followed by domain-driven grouping (supply / demand / inventory / consumption) and within-group VIF pruning.
+            Final features: OPEC Production, Non-OPEC Production, OECD/Non-OECD Consumption, Crude Oil Inventory, Liquid Fuel Supply, Heating/Cooling Degree Days.
+            Achieved 81% directional price-movement accuracy using SVM and Logistic Regression classifiers.
           </div>
           <div class="proj-tags">
-            <span class="tag">LSTM</span><span class="tag">GRU</span><span class="tag">ARIMAX</span>
-            <span class="tag">Volatile Market</span><span class="tag">Ensemble</span>
+            <span class="tag">SVM · 81% Directional Accuracy</span><span class="tag">Lasso Feature Selection</span>
+            <span class="tag">ARIMAX</span><span class="tag">RF · KNN Classifiers</span><span class="tag">52 Macro Variables</span>
+            <span class="tag">EIA Dataset</span><span class="tag">Monthly + Quarterly Horizon</span><span class="tag">VIF Pruning</span>
           </div>
         </div>
 
         <div class="proj-item">
-          <div class="proj-name"><i class="fas fa-robot"></i> Zero-Shot Classification & Review Summarization</div>
+          <div class="impact-badge"><i class="fas fa-robot"></i> 30,000+ Reviews/Month · On-Premise LLM · Data-Secure · Azure</div>
+          <div class="proj-name"><i class="fas fa-comments"></i> Zero-Shot Classification & Review Summarization</div>
           <div class="proj-desc">
-            NLP solution for the petrochemical business: zero-shot classification for automated
-            document categorization and abstractive review summarization — reducing manual
-            analysis effort for the business team.
+            Petrochemical business teams generated 30,000+ site-visit reviews per month exported as CSV/Excel. Senior management needed automated classification, summarization, and a queryable interface — without sending confidential data to external LLM APIs.
+            Built an end-to-end Gradio application powered by Llama 3.2 (9B) via Ollama, deployed on an Azure Linux server — one model for the entire application, with prompts and output formatting changed per task.
+            Features: file upload (CSV/Excel/text) → zero-shot classification table (price / demand / supply / inventory / positive-negative per review) → dual summarization (direct summary + map-reduce for large review volumes) → RAG-style chatbot querying the full review corpus.
+            Earlier transformer/BERT approaches underperformed on large text volumes; Llama 3.2 delivered superior results. Client demo received strong approval; data security concerns fully resolved by keeping data on the internal server.
           </div>
           <div class="proj-tags">
-            <span class="tag">NLP</span><span class="tag">Zero-Shot Classification</span>
-            <span class="tag">Text Summarization</span><span class="tag">Transformers</span>
+            <span class="tag">Llama 3.2 (9B)</span><span class="tag">Ollama</span><span class="tag">Zero-Shot Classification</span>
+            <span class="tag">Map-Reduce Summarization</span><span class="tag">RAG Chatbot</span>
+            <span class="tag">Gradio</span><span class="tag">Azure Linux</span><span class="tag">On-Premise LLM</span><span class="tag">Data Security</span>
           </div>
         </div>
 
@@ -941,7 +1031,7 @@ footer {
       <div class="acc-context">PAN-India · Daily Sales</div>
     </div>
     <div class="acc-card">
-      <div class="acc-num">22<span>+</span></div>
+      <div class="acc-num">30<span>+</span></div>
       <div class="acc-label">Models in Accelerator</div>
       <div class="acc-context">Stat · ML · DL · Univariate</div>
     </div>
@@ -957,18 +1047,18 @@ footer {
     <div class="skill-block">
       <div class="skill-block-title"><i class="fas fa-brain"></i> Forecasting & ML Models</div>
       <div class="skill-pills">
-        <span class="pill highlight">ARIMA / SARIMA</span>
+        <span class="pill highlight">ARIMA / SARIMA / SARIMAX</span>
         <span class="pill highlight">ETS / Holt-Winters</span>
         <span class="pill highlight">FBProphet</span>
-        <span class="pill highlight">ARIMAX / SARIMAX</span>
+        <span class="pill highlight">Theta · Croston · Croston SBJ</span>
         <span class="pill">Random Forest</span>
         <span class="pill">XGBoost</span>
         <span class="pill highlight">LightGBM</span>
         <span class="pill">AdaBoost</span>
-        <span class="pill highlight">LSTM</span>
-        <span class="pill highlight">GRU</span>
-        <span class="pill highlight">NHITS</span>
+        <span class="pill highlight">LSTM · GRU</span>
+        <span class="pill highlight">NHITS · NBEATS</span>
         <span class="pill highlight">TimesNet</span>
+        <span class="pill">SVM · Logistic Regression</span>
       </div>
     </div>
 
@@ -994,25 +1084,31 @@ footer {
       <div class="skill-block-title"><i class="fas fa-layer-group"></i> Forecasting Expertise</div>
       <div class="skill-pills">
         <span class="pill highlight">Hierarchical Forecasting</span>
-        <span class="pill highlight">Intermittent Demand</span>
+        <span class="pill highlight">Intermittent Demand (Croston/SBJ)</span>
         <span class="pill highlight">Ensemble Strategies</span>
-        <span class="pill highlight">Demand Sensing</span>
-        <span class="pill">Feature Engineering</span>
-        <span class="pill">Seasonal Decomposition</span>
-        <span class="pill">Anomaly Detection</span>
-        <span class="pill">Cross-Validation TS</span>
+        <span class="pill highlight">Forecast Calibration</span>
+        <span class="pill highlight">New Product Forecasting</span>
+        <span class="pill">Seasonal Decomposition (STL)</span>
+        <span class="pill">ABC-XYZ Segmentation</span>
+        <span class="pill">Festive / Campaign Impact Modeling</span>
+        <span class="pill">Rolling Backtesting</span>
+        <span class="pill">Demand Sensing</span>
       </div>
     </div>
 
     <div class="skill-block">
-      <div class="skill-block-title"><i class="fas fa-database"></i> Data & Tooling</div>
+      <div class="skill-block-title"><i class="fas fa-database"></i> Data, Cloud & Tooling</div>
       <div class="skill-pills">
-        <span class="pill">Python</span>
+        <span class="pill highlight">Python</span>
         <span class="pill">SQL</span>
-        <span class="pill highlight">MLflow (Experiment Tracking)</span>
+        <span class="pill highlight">Snowflake</span>
+        <span class="pill highlight">MLflow</span>
+        <span class="pill highlight">Azure Cloud</span>
+        <span class="pill">Streamlit</span>
+        <span class="pill">Gradio</span>
+        <span class="pill highlight">Llama 3.2 · Ollama</span>
         <span class="pill">NLP / Transformers</span>
         <span class="pill">OCR / Text Extraction</span>
-        <span class="pill">Zero-Shot Classification</span>
         <span class="pill">Clustering</span>
         <span class="pill">Git</span>
       </div>
@@ -1091,17 +1187,34 @@ footer {
       <div class="pcard-arrow">View Case Study <i class="fas fa-arrow-right"></i></div>
     </div>
 
-    <div class="pcard" onclick="openModal('nlp')">
-      <div class="pcard-badge badge-research">NLP · Automation</div>
-      <div class="pcard-title">Zero-Shot Classification & Summarization</div>
-      <div class="pcard-sub">Jio Platforms · Petchem Division</div>
+    <div class="pcard" onclick="openModal('dashboard')">
+      <div class="pcard-badge badge-asset">Internal Asset · Demo</div>
+      <div class="pcard-title">Hi-Tech Forecasting Demo Dashboard</div>
+      <div class="pcard-sub">Accenture · Supply Chain & Analytics</div>
       <div class="pcard-desc">
-        NLP automation for petrochemical business: zero-shot document classification
-        and abstractive review summarization using transformer models. Eliminated manual processing.
+        Persona-driven Streamlit dashboard for client demos — Data Scientist, Demand Planner,
+        and Supply Chain Executive each see a tailored view. 13+ modules from STL decomposition
+        to scenario simulations and New Product Forecasting.
       </div>
       <div class="pcard-metrics">
-        <div class="metric"><div class="metric-val">Zero-Shot</div><div class="metric-key">Classification</div></div>
-        <div class="metric"><div class="metric-val">NLP</div><div class="metric-key">Summarization</div></div>
+        <div class="metric"><div class="metric-val">3</div><div class="metric-key">User Personas</div></div>
+        <div class="metric"><div class="metric-val">13+</div><div class="metric-key">Modules</div></div>
+        <div class="metric"><div class="metric-val">Scenario</div><div class="metric-key">Simulations</div></div>
+      </div>
+      <div class="pcard-arrow">View Case Study <i class="fas fa-arrow-right"></i></div>
+    </div>
+
+    <div class="pcard" onclick="openModal('nlp')">
+      <div class="pcard-badge badge-research">NLP · On-Premise LLM · Azure</div>
+      <div class="pcard-title">Zero-Shot Classification & Review Summarization</div>
+      <div class="pcard-sub">Jio Platforms · Petrochemical Division</div>
+      <div class="pcard-desc">
+        30,000+ monthly reviews auto-classified by category & sentiment, summarized, and made queryable via a RAG chatbot. Powered by Llama 3.2 (9B) on Azure — fully on-premise, zero data security risk.
+      </div>
+      <div class="pcard-metrics">
+        <div class="metric"><div class="metric-val">30K+</div><div class="metric-key">Reviews/Month</div></div>
+        <div class="metric"><div class="metric-val">Llama 3.2</div><div class="metric-key">On-Premise LLM</div></div>
+        <div class="metric"><div class="metric-val">RAG</div><div class="metric-key">Chatbot</div></div>
       </div>
       <div class="pcard-arrow">View Case Study <i class="fas fa-arrow-right"></i></div>
     </div>
@@ -1118,8 +1231,8 @@ footer {
       Open to Forecasting Specialist, Senior Data Scientist, and ML Engineer roles.
     </p>
     <div class="contact-links">
-      <a href="mailto:samdhikale00@gmail.com" class="contact-link">
-        <i class="fas fa-envelope"></i> samdhikale00@gmail.com
+      <a href="/cdn-cgi/l/email-protection#cdbeaca0a9a5a4a6aca1a8fdfd8daaa0aca4a1e3aea2a0" class="contact-link">
+        <i class="fas fa-envelope"></i> <span class="__cf_email__" data-cfemail="93e0f2fef7fbfaf8f2fff6a3a3d3f4fef2faffbdf0fcfe">[email&#160;protected]</span>
       </a>
       <a href="https://www.linkedin.com/in/samadhan-dhikale-4728961a8" target="_blank" class="contact-link">
         <i class="fab fa-linkedin"></i> LinkedIn Profile
@@ -1144,7 +1257,7 @@ footer {
   </div>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // Scroll animations
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
@@ -1153,104 +1266,139 @@ document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
 const modals = {
   accelerator: {
-    badge: '<span class="pcard-badge badge-asset">Internal Asset · Accenture</span>',
+    badge: '<span class="pcard-badge badge-asset">Internal Asset · Accenture Supply Chain & Analytics</span>',
     title: 'Forecast Accelerator',
-    org: 'Accenture · 2025 · Internal Reusable Asset',
+    org: 'Accenture · Supply Chain & Analytics · 2025 · Internal Reusable Asset',
     metrics: [
-      { val: '22+', key: 'Total Models' },
-      { val: '14', key: 'Univariate Models' },
-      { val: '4', key: 'ML Models' },
-      { val: '4', key: 'DL Models' },
+      { val: '30+', key: 'Total Models' },
+      { val: 'Zero', key: 'Code Changes Needed' },
+      { val: 'MLflow', key: 'Experiment Tracking' },
+      { val: 'Config', key: 'Driven Pipeline' },
     ],
-    problem: 'Each forecasting project at Accenture required significant setup time — data preprocessing, model selection, experiment tracking, and configuration management were being rebuilt from scratch on every engagement. The team needed a reusable, scalable solution.',
-    solution: 'Built a config-driven Forecast Accelerator where any team member can run a complete forecasting experiment by editing a single config file — no changes to the core modules, no manual intervention required. The accelerator wraps 22+ models across statistical, ML, and deep learning families with unified preprocessing, evaluation, and MLflow tracking.',
+    problem: 'Every new forecasting engagement required rebuilding the same pipeline components from scratch — data validation, feature engineering, model training, evaluation, and experiment logging. This created inconsistency across projects, slowed onboarding of new team members, and made reproducibility difficult. The team needed a standardized, reusable forecasting engine.',
+    solution: 'Designed a modular, config-driven Forecast Accelerator where users define the dataset, target column, date column, forecast horizon, and modeling type (univariate or multivariate) in a single config file. The system then automatically handles the entire pipeline: data cleaning and validation → intermittent demand detection → time series segmentation → advanced feature engineering → feature selection → outlier handling → model benchmarking across 30+ models → ranking-based ensemble generation → evaluation reports. MLflow is integrated throughout for experiment tracking and model registry. No changes required to core modules — fully plug-and-play.',
     impact: [
-      'Zero code changes needed — fully config-driven input/output',
-      '22+ models: 14 univariate (ARIMA, ETS, Holt-Winters, etc.), 4 ML (RF, XGBoost, LGBM, AdaBoost), 4 DL (LSTM, GRU, NHITS, TimesNet)',
-      'MLflow integration for full experiment reproducibility and model registry',
-      'Standardized evaluation with pluggable accuracy metrics (MAPE, Cum5, etc.)',
-      'Significantly reduced time-to-first-forecast for new team members',
+      'Zero code changes needed by the end user — fully config-driven from input to output',
+      '30+ models across families: Univariate (ARIMA, SARIMA, ETS, Holt-Winters, Theta, Croston, Croston SBJ, MA, FBProphet, Naive variants), ML (RF, XGBoost, LGBM, AdaBoost, FBProphet multivariate), DL (NHITS, NBEATS, TimesNet, LSTM, GRU)',
+      'Rich feature engineering: lag features, MA features, calendar features, sin/cos cyclical encoding, demand ratios — all configurable',
+      'Multiple feature selection methods available: SFS, forward selection, VIF, L1/L2 regularization',
+      'Multiple outlier handling and segmentation approaches built in',
+      'MLflow integration ensures full reproducibility and model comparability across runs',
+      'Significantly reduced time-to-first-forecast for new team members and new engagements',
+      'Standardized evaluation metrics (MAPE, Cum5, etc.) across all model runs',
     ],
-    tech: ['Python','statsforecast','darts','LightGBM','XGBoost','LSTM','GRU','NHITS','TimesNet','MLflow','ARIMA','SARIMA','ETS','FBProphet','ARIMAX','SARIMAX','Holt-Winters','AdaBoost']
+    tech: ['Python','statsforecast','darts','LightGBM','XGBoost','AdaBoost','Random Forest','LSTM','GRU','NHITS','NBEATS','TimesNet','MLflow','ARIMA','SARIMA','ETS','FBProphet','Theta','Croston','Holt-Winters','pandas','numpy','scikit-learn']
   },
   jio: {
-    badge: '<span class="pcard-badge badge-enterprise">Enterprise · PAN-India Scale</span>',
-    title: 'PAN-India Retail Store Sales Forecasting',
-    org: 'Jio Platforms Limited · Sep 2022 – Feb 2025',
+    badge: '<span class="pcard-badge badge-enterprise">Enterprise · PAN-India Retail · Reliance</span>',
+    title: 'Reliance Trends Store Sales Forecasting',
+    org: 'Jio Platforms Limited · Retail Business · Sep 2022 – Feb 2025',
     metrics: [
       { val: '97%+', key: 'Peak Accuracy' },
       { val: '90-95%', key: 'National Avg' },
       { val: '85-95%', key: 'State Level' },
-      { val: '3.2M+', key: 'Records' },
+      { val: '4.5M+', key: 'Rows of Data' },
     ],
-    problem: 'Jio\'s retail business was running on basic univariate forecasting with a MAPE-based accuracy of only 45–50% at the PAN-India level. This was causing significant inventory inefficiencies, stockouts, and missed business opportunities across thousands of retail outlets across India.',
-    solution: 'Re-engineered the forecasting pipeline from the ground up. Implemented multi-level hierarchical forecasting — national → state → store level — with advanced seasonality decomposition, calendar effects, and ensemble model selection. Benchmarked 10+ models per SKU/store combination to select optimal model per series.',
+    problem: 'Reliance Retail\'s Trends stores operate on monthly sales targets derived through internal business methodology. When a shortfall in sales is expected, the business triggers promotional campaigns and coupon offers to bridge the gap. However, the existing forecasting system — basic univariate models — was delivering only 45–55% MAPE accuracy, making it unreliable for business decision-making. The goal was to forecast next 7 days of sales across 1,200 Trends stores PAN-India, and to understand the quantified effect of promotions, festive campaigns, and coupon issuance/redemption on sales.',
+    solution: 'Rebuilt the forecasting pipeline from ground up using a multivariate approach. Data: ~4.5M rows of daily store-level sales from Sep 2021, provided as monthly Excel files by the business, along with a store master (3,500 stores) and a promotional offers calendar. Features engineered: LWSales (last week sales), LMSales (last month sales), weekday, festive flags — with separate models for PAN-India and each individual state. For every state, identified the specific regional festivals and their pre/post-event demand effects — applied positive weightage for pre-festive demand spikes and negative weightage for post-festive demand drops to accurately model human buying behavior. Ran 1 year of live forward testing, benchmarked all model-feature combinations, and finalized SARIMAX and LSTM as the two production models. Deployed via a Pydash UI connected to the data engineering team\'s pipeline on Azure Cloud.',
     impact: [
-      'Accuracy elevated from 45-50% → 90-95% consistently at national level',
-      'State-level accuracy stabilized at 85-95%',
-      'Peak accuracy reached 97-98% on high-signal series',
-      'Processed and modeled 3.2M+ daily sales records across PAN-India',
-      'Reduced forecast error significantly, enabling better inventory planning',
+      'Accuracy elevated from 45–55% baseline to 90–95% consistently at PAN-India national level',
+      'State-level model accuracy stabilized at 85–95% across all major states',
+      'Peak accuracy reached 97–98% on high-signal stores and series',
+      'Quantified the effect of promotions, festive campaigns, and coupon redemption on daily sales',
+      'State-specific festive flag engineering captured nuanced regional buying behavior',
+      '1 year of live forward testing before production finalization — robust and validated',
+      'Deployed as a live forecasting UI on Azure Cloud, consumed by business stakeholders',
     ],
-    tech: ['Python','FBProphet','SARIMA','ARIMA','Holt-Winters','ETS','LightGBM','XGBoost','pandas','numpy','statsmodels','plotly','MAPE Benchmarking']
+    tech: ['Python','SARIMAX','LSTM','FBProphet','ARIMA','SARIMA','Holt-Winters','pandas','numpy','statsmodels','plotly','Azure Cloud','Pydash','MAPE Benchmarking','Feature Engineering','Festive Flag Engineering']
   },
   oil: {
-    badge: '<span class="pcard-badge badge-research">Research · Volatile Markets</span>',
+    badge: '<span class="pcard-badge badge-research">Research · Volatile Markets · Petrochemical</span>',
     title: 'Brent Oil Spot Price Prediction',
     org: 'Jio Platforms · Petrochemical Business Unit',
     metrics: [
-      { val: 'LSTM', key: 'Core Model' },
-      { val: 'GRU', key: 'Ensemble' },
-      { val: 'ARIMAX', key: 'Baseline' },
+      { val: '81%', key: 'Directional Accuracy' },
+      { val: '52', key: 'Macro Variables' },
+      { val: '330', key: 'Months of Data' },
+      { val: 'Monthly+Qtr', key: 'Dual Horizon' },
     ],
-    problem: 'The petrochemical business unit needed reliable Brent crude oil price forecasts to support procurement and hedging decisions. Crude oil prices are notoriously volatile with sudden regime changes driven by geopolitical events, OPEC decisions, and macro-economic shifts.',
-    solution: 'Developed an ensemble forecasting approach combining ARIMAX for trend-based baseline modeling with LSTM and GRU deep learning models to capture non-linear patterns and volatility clustering. Incorporated exogenous macroeconomic variables as model inputs.',
+    problem: 'The petrochemical business unit required reliable Brent crude oil price forecasts at both monthly (short-term) and quarterly (long-term) horizons to support procurement decisions and strategic planning. Crude oil is one of the most volatile commodities — subject to geopolitical shocks, OPEC decisions, global supply-demand imbalances, and macroeconomic regime changes — making traditional forecasting approaches unreliable.',
+    solution: 'Sourced 52 macro-economic variables from the EIA website covering supply, demand, production, consumption, inventory, and climate indicators (Jan 1997 – Jul 2024: 330 months / 110 quarters). Standard feature selection methods (forward selection, backward elimination, VIF) failed due to extreme multicollinearity among supply-demand variables. Applied Lasso regression to auto-select features by driving irrelevant coefficients to zero. Then grouped remaining variables by domain category (supply / demand / inventory / consumption), ran VIF within each group, and removed the highest-variance variable per category. Final feature set: OPEC Production, Non-OPEC Production, Non-OECD Consumption, Middle East Consumption, Crude Oil Inventory, Total Petroleum Supply, Liquid Fuel Consumption, Europe Supply, Other Oil Inventory, Heating/Cooling Degree Days. Built SVM and Logistic Regression classifiers for directional prediction; SVR for point estimates. For quarterly data, averaged per-day variables and used end-of-period values for stock variables like inventory.',
     impact: [
-      'Built volatile time series forecasting capability for the petchem business unit',
-      'Ensemble approach combining statistical and deep learning reduced single-model error',
-      'Provided probabilistic confidence intervals for risk-aware procurement decisions',
-      'Exogenous variable integration improved response to macro events',
+      'Achieved 81% directional accuracy (price up/down) using SVM and Logistic Regression — strong signal for procurement hedging decisions',
+      'Resolved multicollinearity challenge using Lasso + domain-grouped VIF pruning — novel and defensible approach',
+      'Dual horizon forecasting: monthly (270 train / 60 test) and quarterly (80 train / 30 test)',
+      'Correct handling of quarterly aggregation: per-day variables averaged, end-of-period variables (e.g., inventory) used as last value',
+      'Provided the petrochemical team with directional market intelligence to support strategic planning',
     ],
-    tech: ['LSTM','GRU','ARIMAX','Python','TensorFlow','Keras','statsmodels','plotly','pandas','numpy']
+    tech: ['Python','SVM','Logistic Regression','Random Forest','KNN Classifier','SVR','Lasso Regression','ARIMAX','statsmodels','scikit-learn','pandas','numpy','EIA Dataset','VIF Pruning','Feature Grouping']
   },
   demand: {
-    badge: '<span class="pcard-badge badge-enterprise">Enterprise · Global Retail Client</span>',
+    badge: '<span class="pcard-badge badge-enterprise">Enterprise · Global Retail Client · Supply Chain Analytics</span>',
     title: 'Enterprise Demand Forecasting System',
-    org: 'Accenture · Large Retail Client · 2025',
+    org: 'Accenture · Supply Chain & Analytics · Large Retail Client · 2025',
     metrics: [
       { val: '57wk', key: 'Forecast Horizon' },
-      { val: 'Cum5', key: 'Accuracy Metric' },
-      { val: 'Multi-Level', key: 'Hierarchy' },
+      { val: 'Cum5', key: 'Primary Accuracy KPI' },
+      { val: 'Snowflake', key: 'Data Source' },
+      { val: 'MPN-Level', key: 'Hierarchy' },
     ],
-    problem: 'A large global enterprise retail client needed a robust 57-week demand forecasting system to support long-term inventory planning, supply chain optimization, and financial forecasting at store and SKU level.',
-    solution: 'Built an end-to-end forecasting pipeline with 57-week forward horizons at store-SKU granularity. Implemented hierarchical reconciliation to ensure top-down consistency, Cum5 (last 5-week cumulative accuracy) as the primary business metric, and automated model selection per series.',
+    problem: 'A large global enterprise retail client needed a scalable, production-grade demand forecasting solution to generate 57-week rolling forecasts across multiple regions and sales channels. The data presented classic enterprise challenges: hierarchical retail time series with varying demand patterns, intermittent demand items, seasonality, and planning hierarchies spanning from aggregate to MPN–Sold_to level. The client needed to improve inventory planning, reduce forecast volatility, and support long-term supply chain decision-making.',
+    solution: 'Designed and implemented the full end-to-end forecasting pipeline as the lead data scientist on the engagement. Pipeline stages: (1) Data ingestion from Snowflake with time series continuity checks, missing value handling, negative demand correction; (2) Intermittent vs. non-intermittent demand identification and series segmentation by demand pattern; (3) Feature engineering for ML/DL models; (4) Rolling backtesting across full model suite — univariate (ARIMA, SARIMA, ETS, Holt-Winters, Theta, Croston, Croston SBJ, MA, FBProphet, Seasonal Naive and variants), ML (RF, XGBoost, LightGBM), DL (NHITS, TimesNet); (5) Ranking-based ensemble — benchmarked all models, selected top performers per series, applied weighted averaging; (6) Forecast calibration to reduce abnormal spikes and improve business interpretability; (7) Hierarchical disaggregation from aggregate to MPN–Sold_to level to maintain cross-hierarchy consistency; (8) New Product Forecasting for items with zero demand history. Primary accuracy metric: Cum5 (Last 5-Week Cumulative Accuracy).',
     impact: [
-      'Delivered 57-week demand forecasts at store-SKU level for enterprise planning',
-      'Cum5 accuracy metric alignment with client business requirements',
-      'Hierarchical reconciliation ensuring national/regional/store-level consistency',
-      'Automated pipeline reducing analyst overhead for weekly forecast refreshes',
-      'Stakeholder-facing reporting integrated with business planning cycles',
+      'Delivered production 57-week rolling demand forecasts across regions and channels for supply chain planning',
+      'Cum5 accuracy metric aligned forecasting outputs directly to client business KPIs',
+      'Hierarchical disaggregation maintained top-down consistency from aggregate to MPN–Sold_to level',
+      'Ensemble + calibration strategy reduced forecast spikes and improved stakeholder trust in outputs',
+      'New Product Forecasting capability delivered forecasts for items with no demand history',
+      'Automated pipeline reduced analyst overhead for weekly forecast refreshes',
+      'Enabled region-wise and channel-wise planning with explainable outputs for business stakeholders',
     ],
-    tech: ['LightGBM','XGBoost','NHITS','TimesNet','statsforecast','MLflow','Python','plotly','Hierarchical Reconciliation','pandas']
+    tech: ['Snowflake','Python','LightGBM','XGBoost','Random Forest','NHITS','TimesNet','ARIMA','SARIMA','ETS','Holt-Winters','Theta','Croston','Croston SBJ','FBProphet','MLflow','statsforecast','darts','Hierarchical Disaggregation','pandas','plotly']
   },
   nlp: {
-    badge: '<span class="pcard-badge badge-research">NLP · Automation</span>',
+    badge: '<span class="pcard-badge badge-research">NLP · On-Premise LLM · Data Security · Azure</span>',
     title: 'Zero-Shot Classification & Review Summarization',
     org: 'Jio Platforms · Petrochemical Division',
     metrics: [
+      { val: '30K+', key: 'Reviews/Month' },
+      { val: 'Llama 3.2', key: '9B Model' },
+      { val: 'On-Prem', key: 'Data Secure' },
       { val: 'Zero-Shot', key: 'No Training Data' },
-      { val: 'Auto', key: 'Classification' },
-      { val: 'NLP', key: 'Summarization' },
     ],
-    problem: 'The petrochemical team was manually categorizing and summarizing large volumes of business documents and reviews — a time-consuming and error-prone process that created bottlenecks in analysis workflows.',
-    solution: 'Implemented a two-part NLP automation: (1) Zero-shot classification using pre-trained transformer models for document categorization without requiring labeled training data; (2) Abstractive text summarization to generate concise summaries of long-form review documents.',
+    problem: 'Petrochemical business teams conducted regular site visits and logged 30,000+ reviews per month in a tool exported as CSV/Excel. Senior management needed to understand themes, sentiment, and category breakdowns across these reviews — but reading each review manually was infeasible. The business needed automated classification by category (price, demand, supply, inventory, other) and sentiment (positive/negative), document summarization for quick consumption, and a queryable interface to ask questions directly against the review corpus. A critical constraint: organizational documents could not be uploaded to external cloud LLMs (ChatGPT, etc.) for data security reasons.',
+    solution: 'Built a fully local, end-to-end Gradio application using Llama 3.2 (9B) via Ollama deployed on an Azure Linux server. Used a single model for all tasks — only the prompt and output format changed per task. Pipeline: (1) File upload (CSV/Excel/text); (2) Zero-shot classification table — each review classified against business categories (price/demand/supply/inventory/other) and sentiment (positive/negative), presented in a table format; (3) Dual summarization — direct summary for smaller volumes + map-reduce summarization for large text batches that exceed context limits; (4) RAG-style chatbot where users can fire queries against the full review corpus and get answers. Earlier BERT/transformer approaches underperformed on the large text volumes; Llama 3.2 delivered consistently superior results across all three tasks.',
     impact: [
-      'Eliminated manual document classification effort for the petchem business team',
-      'Zero-shot approach meant no labeled data required — fast deployment',
-      'Abstractive summarization reduced review reading time significantly',
-      'Scalable pipeline applicable to new document types without retraining',
+      'Eliminated manual review processing for 30,000+ monthly reviews — significant analyst time savings',
+      'Zero-shot classification required no labeled training data — deployed rapidly without annotation overhead',
+      'Map-reduce summarization handled large document volumes that single-pass models could not process',
+      'RAG chatbot enabled natural language querying of the full monthly review corpus',
+      'On-premise Ollama deployment on Azure Linux kept all organizational data within the internal server — data security concerns fully resolved',
+      'Client demo received strong approval; highlighted as a key differentiator for enterprise LLM adoption',
+      'Scalable to new review categories and document types without any model retraining',
     ],
-    tech: ['Python','Transformers','Zero-Shot Classification','Text Summarization','NLP','Hugging Face','pandas']
+    tech: ['Python','Llama 3.2 (9B)','Ollama','Gradio','Azure Linux Server','Zero-Shot Classification','Map-Reduce Summarization','RAG Chatbot','Prompt Engineering','pandas']
+  },
+  dashboard: {
+    badge: '<span class="pcard-badge badge-asset">Internal Asset · Client Demo · Hi-Tech Industry</span>',
+    title: 'Hi-Tech Forecasting Demo Dashboard',
+    org: 'Accenture · Supply Chain & Analytics · Internal Demo Asset',
+    metrics: [
+      { val: '3', key: 'User Personas' },
+      { val: '13+', key: 'Dashboard Modules' },
+      { val: 'Streamlit', key: 'Framework' },
+      { val: 'Scenario', key: 'Simulations' },
+    ],
+    problem: 'Accenture needed a compelling, interactive demo tool to showcase its demand forecasting capabilities to hi-tech industry clients. Existing demos were static and technical — they failed to communicate business value to non-technical stakeholders like demand planners and supply chain executives. The tool needed to speak different "languages" to different personas.',
+    solution: 'Built a persona-driven Streamlit dashboard with three user roles: Data Scientist (full pipeline visibility), Demand Planner (planning-relevant views only), and Supply Chain Executive (final outputs and KPIs only). Modules: (1) Demand Summary — yearly/channel/geographic distribution, product lifecycle; (2) STL seasonal decomposition, holiday effects, promotion effects; (3) Data preprocessing — continuity checks, missing value imputation, negative demand handling, outlier correction; (4) Segmentation — demand-based and ABC-XYZ with visuals and interpretation; (5) Feature Engineering — Boruta and correlation-based feature selection; (6) Modeling and historical vs. forecast visualization; (7) Model performance comparison; (8) Scenario-based simulations; (9) Accuracy metrics dashboard; (10) New Product Forecasting; (11) Business-friendly explanations for non-technical audiences. Multiple filters for product, country, and channel selection throughout.',
+    impact: [
+      'Enabled persona-driven demos — each stakeholder sees only what is relevant to their role',
+      'Translated highly technical forecasting pipeline into business-friendly narrative for client walkthroughs',
+      'Scenario simulation module allowed clients to model what-if demand changes interactively',
+      'ABC-XYZ segmentation and STL decomposition visualizations improved client understanding of demand complexity',
+      'Used as an internal asset across multiple client engagements to demonstrate Accenture\'s forecasting IP',
+    ],
+    tech: ['Python','Streamlit','Plotly','Matplotlib','Seaborn','STL Decomposition','ABC-XYZ Segmentation','Boruta Feature Selection','Scenario Simulation','New Product Forecasting']
   }
 };
 
@@ -1264,8 +1412,8 @@ function openModal(key) {
       ${m.metrics.map(mt => `<div class="modal-metric"><div class="modal-metric-val">${mt.val}</div><div class="modal-metric-key">${mt.key}</div></div>`).join('')}
     </div>
     <div class="modal-section"><h4>Business Problem</h4><p>${m.problem}</p></div>
-    <div class="modal-section"><h4>Technical Solution</h4><p>${m.solution}</p></div>
-    <div class="modal-section"><h4>Key Outcomes</h4><ul>${m.impact.map(i => `<li>${i}</li>`).join('')}</ul></div>
+    <div class="modal-section"><h4>Technical Approach</h4><p>${m.solution}</p></div>
+    <div class="modal-section"><h4>Key Outcomes & Impact</h4><ul>${m.impact.map(i => `<li>${i}</li>`).join('')}</ul></div>
     <div class="modal-section"><h4>Tech Stack</h4><div class="modal-tech">${m.tech.map(t => `<span class="tag">${t}</span>`).join('')}</div></div>
   `;
   document.getElementById('modalOverlay').classList.add('open');
@@ -1275,12 +1423,4 @@ function openModal(key) {
 function closeModal(e) {
   if(e.target === document.getElementById('modalOverlay')) closeModalDirect();
 }
-function closeModalDirect() {
-  document.getElementById('modalOverlay').classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-document.addEventListener('keydown', e => { if(e.key === 'Escape') closeModalDirect(); });
-</script>
-</body>
-</html>
+functi
